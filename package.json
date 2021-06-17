@@ -1,11 +1,31 @@
 {
   "name": "lightcss",
   "version": "0.1.0",
-  "private": true,
+  "description": "LightCSS toolkit",
+  "module": "dist/lightcss.esm.min.js",
+  "browser": "dist/lightcss.umd.min.js",
+  "main": "dist/lightcss.esm.min.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SimonMarcelLinden/LightCSS.git"
+  },
+  "author": "Simon Marcel Linden",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SimonMarcelLinden/LightCSS/issues"
+  },
+  "homepage": "https://github.com/SimonMarcelLinden/LightCSS#readme",
+  "files": [
+    "dist/*",
+    "License",
+    "README.md"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "build-css": "rollup -c",
+    "watch-css": "rollup -c -w"
   },
   "dependencies": {
     "core-js": "^3.6.5",
@@ -18,6 +38,9 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "rollup": "^2.52.1",
+    "rollup-plugin-scss": "^2.6.1",
+    "rollup-plugin-terser": "^7.0.2",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
