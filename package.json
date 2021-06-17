@@ -5,6 +5,7 @@
   "module": "dist/lightcss.esm.min.js",
   "browser": "dist/lightcss.umd.min.js",
   "main": "dist/lightcss.esm.min.js",
+  "style": "src/scss/lightcss.scss",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SimonMarcelLinden/LightCSS.git"

@@ -8,7 +8,7 @@ export default {
         terser(),
         scss({
             output: 'dist/lightcss.min.css',
-            outputStyle: "compressed"
+            // outputStyle: "compressed"
         }),
     ],
     output: [
