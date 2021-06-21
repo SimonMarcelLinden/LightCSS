@@ -1,0 +1,193 @@
+/*
+ * ==========================================================================
+ * LightCSS - Grid Layout
+ * ==========================================================================
+*/
+
+.grid {
+  display : grid;
+  @extend .px-2;
+}
+.inline-grid {
+  display: inline-grid
+}
+
+@each $i in $grid_steps {
+  .grid-rows-#{$i} {
+    //grid-template-rows: repeat( $i, #{100%/$i});
+    grid-template-rows: repeat( $i, minmax(0, 1fr))
+  }
+  .grid-cols-#{$i} {
+    //grid-template-columns: repeat( $i, #{100%/$i});
+    grid-template-columns: repeat($i, minmax(0, 1fr))
+  }
+}
+
+.g-rows-none {
+  grid-template-rows: none
+}
+.g-rows-auto {
+  grid-auto-rows: auto
+}
+.g-rows-min {
+  grid-auto-rows: min-content
+}
+.g-rows-max {
+  grid-auto-rows: max-content
+}
+.g-rows-fr {
+  grid-auto-rows: minmax(0, 1fr)
+}
+
+.g-cols-none {
+  grid-template-columns: none
+}
+.g-cols-auto {
+  grid-auto-columns: auto
+}
+.g-cols-min {
+  grid-auto-columns: min-content
+}
+.g-cols-max {
+  grid-auto-columns: max-content
+}
+.g-cols-fr {
+  grid-auto-columns: minmax(0, 1fr)
+}
+
+.g-col-start-auto{
+  grid-column-start: auto
+}
+.g-col-end-auto{
+  grid-column-end: auto
+}
+@for $i from 0 through 13 {
+  .g-col-start-#{$i} {
+    grid-column-start: #{$i}
+  }
+  .g-col-end-#{$i} {
+    grid-column-end: #{$i}
+  }
+  .g-row-span-#{$i} {
+    grid-row: span #{$i} / span #{$i}
+  }
+  .g-col-span-#{$i} {
+    grid-column: span #{$i} / span #{$i}
+  }
+  @each $j in 13 {
+    $spanname: $i+ '\\:' + $j;
+    .g-row-span-#{$spanname} {
+      grid-row-start: #{$i};
+      grid-row-end  : #{$j};
+    }
+  }
+}
+
+@each $i in $grid_gaps {
+  $gab_name: classname($i, '.', '\\.' );
+  .gab-#{$gab_name} {
+    gap: #{$i/4}rem;
+  }
+  .gab-x-#{$gab_name} {
+    column-gap: #{$i/4}rem;
+  }
+  .gab-y-#{$gab_name} {
+    row-gap: #{$i/4}rem;
+  }
+}
+
+@each $point, $screen in $breakpoints {
+  @if map-has-key($queries, $screen) {
+    @include breakpoint(#{$screen}, 'min') {
+      .#{$point}\:grid {
+        display : grid;
+      }
+      .#{$point}\:inline-grid {
+        display: inline-grid
+      }
+      @each $i in $grid_steps {
+        .#{$point}\:grid-rows-#{$i} {
+          //grid-template-rows: repeat( $i, #{100%/$i});
+          grid-template-rows: repeat( $i, minmax(0, 1fr))
+        }
+        .#{$point}\:grid-cols-#{$i} {
+          //grid-template-columns: repeat( $i, #{100%/$i});
+          grid-template-columns: repeat($i, minmax(0, 1fr))
+        }
+      }
+
+      .#{$point}\:g-rows-none {
+        grid-template-rows: none
+      }
+      .#{$point}\:g-rows-auto {
+        grid-auto-rows: auto
+      }
+      .#{$point}\:g-rows-min {
+        grid-auto-rows: min-content
+      }
+      .#{$point}\:g-rows-max {
+        grid-auto-rows: max-content
+      }
+      .#{$point}\:g-rows-fr {
+        grid-auto-rows: minmax(0, 1fr)
+      }
+
+      .#{$point}\:g-cols-none {
+        grid-template-columns: none
+      }
+      .#{$point}\:g-cols-auto {
+        grid-auto-columns: auto
+      }
+      .#{$point}\:g-cols-min {
+        grid-auto-columns: min-content
+      }
+      .#{$point}\:g-cols-max {
+        grid-auto-columns: max-content
+      }
+      .#{$point}\:g-cols-fr {
+        grid-auto-columns: minmax(0, 1fr)
+      }
+
+      .#{$point}\:g-col-start-auto{
+        grid-column-start: auto
+      }
+      .#{$point}\:g-col-end-auto{
+        grid-column-end: auto
+      }
+      @for $i from 0 through 13 {
+        .#{$point}\:g-col-start-#{$i} {
+          grid-column-start: #{$i}
+        }
+        .#{$point}\:g-col-end-#{$i} {
+          grid-column-end: #{$i}
+        }
+        .#{$point}\:g-row-span-#{$i} {
+          grid-row: span #{$i} / span #{$i}
+        }
+        .#{$point}\:g-col-span-#{$i} {
+          grid-column: span #{$i} / span #{$i}
+        }
+        @each $j in 13 {
+          $spanname: $i+ '\\:' + $j;
+          .#{$point}\:g-row-span-#{$spanname} {
+            grid-row-start: #{$i};
+            grid-row-end  : #{$j};
+          }
+        }
+      }
+
+      @each $i in $grid_gaps {
+        $gab_name: classname($i, '.', '\\.' );
+        .#{$point}\:gab-#{$gab_name} {
+          gap: #{$i/4}rem;
+        }
+        .#{$point}\:gab-x-#{$gab_name} {
+          column-gap: #{$i/4}rem;
+        }
+        .#{$point}\:gab-y-#{$gab_name} {
+          row-gap: #{$i/4}rem;
+        }
+      }
+    }
+  }
+}

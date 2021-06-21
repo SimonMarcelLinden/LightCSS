@@ -1,0 +1,250 @@
+/*
+ * ==========================================================================
+ * LightCSS - Margin
+ * ==========================================================================
+*/
+
+.mt-auto {
+  margin-top: auto
+}
+.mr-auto {
+  margin-right: auto
+}
+.mb-auto {
+  margin-bottom: auto
+}
+.ml-auto {
+  margin-left: auto
+}
+.mx-auto {
+  margin-right: auto;
+  margin-left: auto
+}
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto
+}
+/* Margin */
+.m-px {
+  margin: 1px
+}
+.m-full {
+  margin: 100%;
+}
+.m-half, .m-1\/2 {
+  margin: 50%
+}
+.-m-px {
+  margin: -1px
+}
+.-m-full {
+  margin: -100%;
+}
+.-m-half, .-m-1\/2 {
+  margin: -50%
+}
+/* Margin top */
+.mt-px {
+  margin-top: 1px
+}
+.mt-full {
+  margin-top: 100%;
+}
+.mt-half, .mt-1\/2 {
+  margin-top: 50%
+}
+.-mt-px {
+  margin-top: -1px
+}
+.-mt-full {
+  margin-top: -100%;
+}
+.-mt-half, .-mt-1\/2 {
+  margin-top: -50%
+}
+/* Margin right */
+.mr-px {
+  margin-right: 1px
+}
+.mr-full {
+  margin-right: 100%;
+}
+.mr-half, .mr-1\/2 {
+  margin-right: 50%
+}
+.-mr-px {
+  margin-right: -1px
+}
+.-mr-full {
+  margin-right: -100%;
+}
+.-mr-half, .-mr-1\/2 {
+  margin-right: -50%
+}
+/* Margin bottom */
+.mb-px {
+  margin-bottom: 1px
+}
+.mb-full {
+  margin-bottom: 100%;
+}
+.mb-half, .mb-1\/2 {
+  margin-bottom: 50%
+}
+.-mb-px {
+  margin-bottom: 1px
+}
+.-mb-full {
+  margin-bottom: -100%;
+}
+.-mb-half, .-mb-1\/2 {
+  margin-bottom: -50%
+}
+/* Margin left */
+.ml-px {
+  margin-left: 1px
+}
+.ml-full {
+  margin-left: 100%;
+}
+.ml-half, .ml-1\/2 {
+  margin-left: 50%
+}
+.-ml-px {
+  margin-left: -1px
+}
+.-ml-full {
+  margin-left: -100%;
+}
+.-ml-half, .-ml-1\/2 {
+  margin-left: -50%
+}
+
+@each $i in $steps {
+  $classmame: classname($i, '.', '\\.' );
+  .m-#{$classmame} {
+    margin: #{$i/4}rem;
+  }
+  .-m-#{$classmame} {
+    margin: -#{$i/4}rem;
+  }
+  .mt-#{$classmame} {
+    margin-top: #{$i/4}rem;
+  }
+  .-mt-#{$classmame} {
+    margin-top: -#{$i/4}rem;
+  }
+  .mr-#{$classmame} {
+    margin-right: #{$i/4}rem;
+  }
+  .-mr-#{$classmame} {
+    margin-right: -#{$i/4}rem;
+  }
+  .mb-#{$classmame} {
+    margin-bottom: #{$i/4}rem;
+  }
+  .-mb-#{$classmame} {
+    margin-bottom: -#{$i/4}rem;
+  }
+  .ml-#{$classmame} {
+    margin-left: #{$i/4}rem;
+  }
+  .-ml-#{$classmame} {
+    margin-left: -#{$i/4}rem;
+  }
+
+  .mx-#{$classmame} {
+    margin-right: #{$i/4}rem;
+    margin-left: #{$i/4}rem;
+  }
+  .-mx-#{$classmame} {
+    margin-right: -#{$i/4}rem;
+    margin-left: -#{$i/4}rem;
+  }
+  .my-#{$classmame} {
+    margin-top: #{$i/4}rem;
+    margin-bottom: #{$i/4}rem;
+  }
+  .-my-#{$classmame} {
+    margin-top: -#{$i/4}rem;
+    margin-bottom: -#{$i/4}rem;
+  }
+}
+
+@each $point, $screen in $breakpoints {
+  /*! Margin Breakpoint: #{$point} */
+  @if map-has-key($queries, $screen) {
+    @include breakpoint(#{$screen}, 'min') {
+      @each $i in $steps {
+        $classmame: classname($i, '.', '\\.' );
+        .#{$point}\:m-#{$classmame} {
+          margin: #{$i/4}rem;
+        }
+        .-#{$point}\:m-#{$classmame} {
+          margin: -#{$i/4}rem;
+        }
+        .#{$point}\:mt-#{$classmame} {
+          margin-top: #{$i/4}rem;
+        }
+        .-#{$point}\:mt-#{$classmame} {
+          margin-top: -#{$i/4}rem;
+        }
+        .#{$point}\:mr-#{$classmame} {
+          margin-right: #{$i/4}rem;
+        }
+        .-#{$point}\:mr-#{$classmame} {
+          margin-right: -#{$i/4}rem;
+        }
+        .#{$point}\:mb-#{$classmame} {
+          margin-bottom: #{$i/4}rem;
+        }
+        .-#{$point}\:mb-#{$classmame} {
+          margin-bottom: -#{$i/4}rem;
+        }
+        .#{$point}\:ml-#{$classmame} {
+          margin-left: #{$i/4}rem;
+        }
+        .-#{$point}\:ml-#{$classmame} {
+          margin-left: -#{$i/4}rem;
+        }
+
+        .#{$point}\:mx-#{$classmame} {
+          margin-right: #{$i/4}rem;
+          margin-left: #{$i/4}rem;
+        }
+        .-#{$point}\:mx-#{$classmame} {
+          margin-right: -#{$i/4}rem;
+          margin-left: -#{$i/4}rem;
+        }
+        .#{$point}\:my-#{$classmame} {
+          margin-top: #{$i/4}rem;
+          margin-bottom: #{$i/4}rem;
+        }
+        .-#{$point}\:my-#{$classmame} {
+          margin-top: -#{$i/4}rem;
+          margin-bottom: -#{$i/4}rem;
+        }
+      }
+      #{$point}\:mt-auto {
+        margin-top: auto
+      }
+      #{$point}\:mr-auto {
+        margin-right: auto
+      }
+      #{$point}\:mb-auto {
+        margin-bottom: auto
+      }
+      #{$point}\:ml-auto {
+        margin-left: auto
+      }
+      #{$point}\:mx-auto {
+        margin-right: auto;
+        margin-left: auto
+      }
+      #{$point}\:my-auto {
+        margin-top: auto;
+        margin-bottom: auto
+      }
+    }
+  }
+}

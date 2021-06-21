@@ -1,0 +1,250 @@
+.static {
+  position: static
+}
+.fixed {
+  position: fixed
+}
+.absolute {
+  position: absolute
+}
+.relative {
+  position: relative
+}
+.sticky {
+  position: sticky
+}
+
+.top-px {
+  top: 1px
+}
+.top-full {
+  top: 100%;
+}
+.top-half, .top-1\/2 {
+  top: 50%
+}
+
+.-top-px {
+  top: -1px
+}
+.-top-full {
+  top: -100%;
+}
+.-top-half, .-top-1\/2 {
+  top: -50%
+}
+
+.right-px {
+  right: 1px
+}
+.right-full {
+  right: 100%;
+}
+.right-half, .right-1\/2 {
+  right: 50%
+}
+
+.-right-px {
+  right: -1px
+}
+.-right-full {
+  right: -100%;
+}
+.-right-half, .-right-1\/2 {
+  right: -50%
+}
+
+.bottom-px {
+  bottom: 1px
+}
+.bottom-full {
+  bottom: 100%;
+}
+.bottom-half, .bottom-1\/2 {
+  bottom: 50%
+}
+
+.-bottom-px {
+  bottom: -1px
+}
+.-bottom-full {
+  bottom: -100%;
+}
+.-bottom-half, .-bottom-1\/2 {
+  bottom: -50%
+}
+
+.left-px {
+  left: 1px
+}
+.left-full {
+  left: 100%;
+}
+.left-half, .left-1\/2 {
+  left: 50%
+}
+
+.-left-px {
+  left: -1px
+}
+.-left-full {
+  left: -100%;
+}
+.-left-half, .-left-1\/2 {
+  left: -50%
+}
+
+.inset-px {
+  top   : 1px;
+  right : 1px;
+  bottom: 1px;
+  left  : 1px
+}
+.-inset-px {
+  top   : -1px;
+  right : -1px;
+  bottom: -1px;
+  left  : -1px
+}
+
+@each $i in $steps {
+  $class: classname($i, '.');
+
+  .top-#{$class} {
+    top: #{$i/4}rem;
+  }
+  .-top-#{$class} {
+    top: #{$i/4}rem;
+  }
+  .right-#{$class} {
+    right: #{$i/4}rem;
+  }
+  .-right-#{$class} {
+    right: #{$i/4}rem;
+  }
+  .bottom-#{$class} {
+    bottom: #{$i/4}rem;
+  }
+  .-bottom-#{$class} {
+    bottom: #{$i/4}rem;
+  }
+  .left-#{$class} {
+    left: #{$i/4}rem;
+  }
+  .-left-#{$class} {
+    left: #{$i/4}rem;
+  }
+
+  .inset-#{$class} {
+    top   : #{$i/4}rem;
+    right : #{$i/4}rem;
+    bottom: #{$i/4}rem;
+    left  : #{$i/4}rem;
+  }
+  .-inset-#{$class} {
+    top   : -#{$i/4}rem;
+    right : -#{$i/4}rem;
+    bottom: -#{$i/4}rem;
+    left  : -#{$i/4}rem;
+  }
+  .inset-y-#{$class} {
+    top   : #{$i/4}rem;
+    bottom: #{$i/4}rem;
+  }
+  .-inset-y-#{$class} {
+    top   : -#{$i/4}rem;
+    bottom: -#{$i/4}rem;
+  }
+  .inset-x-#{$class} {
+    left : #{$i/4}rem;
+    right: #{$i/4}rem;
+  }
+  .-inset-x-#{$class} {
+    left : -#{$i/4}rem;
+    right: -#{$i/4}rem;
+  }
+
+}
+
+@each $point, $screen in $breakpoints {
+  /*! Position - Breakpoint: #{$point} */
+  @if map-has-key($queries, $screen) {
+    /* Positions */
+    @include breakpoint(#{$screen}, 'min') {
+      .#{$point}\:static {
+        position: static
+      }
+      .#{$point}\:fixed {
+        position: fixed
+      }
+      .#{$point}\:absolute {
+        position: absolute
+      }
+      .#{$point}\:relative {
+        position: relative
+      }
+      .#{$point}\:sticky {
+        position: sticky
+      }
+    }
+    /* Positions padding */
+    @include breakpoint(#{$screen}, 'min') {
+      @each $i in $steps {
+        $class: classname($i, '.');
+        .#{$point}\:top-#{$class} {
+          top: #{$i/4}rem;
+        }
+        .-#{$point}\:top-#{$class} {
+          top: #{$i/4}rem;
+        }
+        .#{$point}\:right-#{$class} {
+          right: #{$i/4}rem;
+        }
+        .-#{$point}\:right-#{$class} {
+          right: #{$i/4}rem;
+        }
+        .#{$point}\:bottom-#{$class} {
+          bottom: #{$i/4}rem;
+        }
+        .-#{$point}\:bottom-#{$class} {
+          bottom: #{$i/4}rem;
+        }
+        .#{$point}\:left-#{$class} {
+          left: #{$i/4}rem;
+        }
+        .-#{$point}\:left-#{$class} {
+          left: #{$i/4}rem;
+        }
+
+        .#{$point}\:inset-#{$class} {
+          top   : #{$i/4}rem;
+          right : #{$i/4}rem;
+          bottom: #{$i/4}rem;
+          left  : #{$i/4}rem;
+        }
+        .-#{$point}\:inset-#{$class} {
+          top   : -#{$i/4}rem;
+          right : -#{$i/4}rem;
+          bottom: -#{$i/4}rem;
+          left  : -#{$i/4}rem;
+        }
+        .#{$point}\:inset-y-#{$class} {
+          top   : #{$i/4}rem;
+          bottom: #{$i/4}rem;
+        }
+        .-#{$point}\:inset-y-#{$class} {
+          top   : -#{$i/4}rem;
+          bottom: -#{$i/4}rem;
+        }
+        .#{$point}\:inset-x-#{$class} {
+          left : #{$i/4}rem;
+          right: #{$i/4}rem;
+        }
+        .-#{$point}\:inset-x-#{$class} {
+          left : -#{$i/4}rem;
+          right: -#{$i/4}rem;
+        }
+      }
+    }
+  }
+}

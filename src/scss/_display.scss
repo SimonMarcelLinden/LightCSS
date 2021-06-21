@@ -1,0 +1,113 @@
+
+.none, .collapse, .hidden,
+.\!none, .\!collapse, .\!hidden {
+  display: none;
+}
+.box-content {
+  box-sizing: content-box
+}
+.block {
+  display: block
+}
+.inline-block {
+  display: inline-block
+}
+.inline {
+  display: inline
+}
+.table {
+  display: table
+}
+.table-caption {
+  display: table-caption
+}
+.table-cell {
+  display: table-cell
+}
+.table-column {
+  display: table-column
+}
+.table-column-group {
+  display: table-column-group
+}
+.table-footer-group {
+  display: table-footer-group
+}
+.table-header-group {
+  display: table-header-group
+}
+.table-row-group {
+  display: table-row-group
+}
+.table-row {
+  display: table-row
+}
+.flow-root {
+  display: flow-root
+}
+.contents {
+  display: contents
+}
+.list-item {
+  display: list-item
+}
+
+
+@each $point, $screen in $breakpoints {
+  @if map-has-key($queries, $screen) {
+    @include breakpoint(#{$screen}, 'min') {
+      .#{$point}\:none, .#{$point}\:collapse, .#{$point}\:hidden,
+      .#{$point}\:\!none, .#{$point}\:\!collapse, .#{$point}\:\!hidden {
+        display: none;
+      }
+      .#{$point}\:box-content {
+        box-sizing: content-box
+      }
+      .#{$point}\:block {
+        display: block
+      }
+      .#{$point}\:inline-block {
+        display: inline-block
+      }
+      .#{$point}\:inline {
+        display: inline
+      }
+      .#{$point}\:table {
+        display: table
+      }
+      .#{$point}\:table-caption {
+        display: table-caption
+      }
+      .#{$point}\:table-cell {
+        display: table-cell
+      }
+      .#{$point}\:table-column {
+        display: table-column
+      }
+      .#{$point}\:table-column-group {
+        display: table-column-group
+      }
+      .#{$point}\:table-footer-group {
+        display: table-footer-group
+      }
+      .#{$point}\:table-header-group {
+        display: table-header-group
+      }
+      .#{$point}\:table-row-group {
+        display: table-row-group
+      }
+      .#{$point}\:table-row {
+        display: table-row
+      }
+      .#{$point}\:flow-root {
+        display: flow-root
+      }
+      .#{$point}\:contents {
+        display: contents
+      }
+      .#{$point}\:list-item {
+        display: list-item
+      }
+    }
+  }
+}

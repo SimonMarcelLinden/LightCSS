@@ -1,0 +1,295 @@
+$width_steps: (
+        'lg'  : ( 1.125rem, 1.75rem ),
+        'sm'  : ( 0.875rem, 1.25rem ),
+        'xs'  : ( 0.75rem , 1rem ),
+        'xl'  : ( 1.25rem , 1.75rem ),
+        'base': ( 1rem    , 1.5rem ),
+        '2xl' : ( 1.5rem  , 2rem ),
+        '3xl' : ( 1.875rem, 2.25rem ),
+        '4xl' : ( 2.25rem , 2.5rem ),
+        '5xl' : ( 3rem    , 1 ),
+        '6xl' : ( 3.75rem , 1 ),
+        '7xl' : ( 4.5rem  , 1 ),
+        '8xl' : ( 6rem    , 1 ),
+        '9xl' : ( 8rem    , 1 ),
+);
+
+.text-left {
+  text-align: left
+}
+.text-center {
+  text-align: center
+}
+.text-right {
+  text-align: right
+}
+.text-justify {
+  text-align: justify
+}
+
+.align-baseline {
+  vertical-align: baseline
+}
+.align-top {
+  vertical-align: top
+}
+.align-middle {
+  vertical-align: middle
+}
+.align-bottom {
+  vertical-align: bottom
+}
+.align-text-top {
+  vertical-align: text-top
+}
+.align-text-bottom {
+  vertical-align: text-bottom
+}
+
+@each $name, $size in $width_steps {
+  .text-#{$name} {
+    font-size: nth($size, 1);
+    line-height: nth($size, 2);
+  }
+}
+
+.font-medium {
+  font-weight: 500
+}
+.font-semibold {
+  font-weight: 600
+}
+.font-bold {
+  font-weight: 700
+}
+.font-light {
+  font-weight: 300
+}
+.font-extrabold {
+  font-weight: 800
+}
+.font-normal {
+  font-weight: 400
+}
+.font-black {
+  font-weight: 900
+}
+.font-thin {
+  font-weight: 100
+}
+.font-extralight {
+  font-weight: 200
+}
+.\!font-medium {
+  font-weight: 500 !important
+}
+
+.uppercase {
+  text-transform: uppercase
+}
+.lowercase {
+  text-transform: lowercase
+}
+.capitalize {
+  text-transform: capitalize
+}
+.normal-case {
+  text-transform: none
+}
+.italic {
+  font-style: italic
+}
+.not-italic {
+  font-style: normal
+}
+
+.line-none {
+  line-height: 1
+}
+.line-snug {
+  line-height: 1.375
+}
+.line-normal {
+    line-height: 1.5
+}
+.line-tight {
+  line-height: 1.25
+}
+.line-relaxed {
+  line-height: 1.625
+}
+.line-loose {
+  line-height: 2
+}
+@for $i from 1 through 10 {
+  .line-#{$i} {
+    line-height: #{$i/4}rem
+  }
+}
+
+.letter-wide {
+  letter-spacing: .025em
+}
+.letter-tight {
+  letter-spacing: -.025em
+}
+.letter-tighter {
+  letter-spacing: -.05em
+}
+.letter-normal {
+  letter-spacing: 0
+}
+.letter-wider {
+  letter-spacing: .05em
+}
+.letter-widest {
+  letter-spacing: .1em
+}
+@for $i from 1 through 10 {
+  .letter-#{$i} {
+    line-height: #{$i/4}rem
+  }
+}
+
+@each $point, $screen in $breakpoints {
+  @if map-has-key($queries, $screen) {
+    @include breakpoint(#{$screen}, 'min') {
+      .#{$point}\:text-left {
+        text-align: left
+      }
+      .#{$point}\:text-center {
+        text-align: center
+      }
+      .#{$point}\:text-right {
+        text-align: right
+      }
+      .#{$point}\:text-justify {
+        text-align: justify
+      }
+
+      .#{$point}\:align-baseline {
+        vertical-align: baseline
+      }
+      .#{$point}\:align-top {
+        vertical-align: top
+      }
+      .#{$point}\:align-middle {
+        vertical-align: middle
+      }
+      .#{$point}\:align-bottom {
+        vertical-align: bottom
+      }
+      .#{$point}\:align-text-top {
+        vertical-align: text-top
+      }
+      .#{$point}\:align-text-bottom {
+        vertical-align: text-bottom
+      }
+
+      @each $name, $size in $width_steps {
+        .#{$point}\:text-#{$name} {
+          font-size: nth($size, 1);
+          line-height: nth($size, 2);
+        }
+      }
+
+      .#{$point}\:font-medium {
+        font-weight: 500
+      }
+      .#{$point}\:font-semibold {
+        font-weight: 600
+      }
+      .#{$point}\:font-bold {
+        font-weight: 700
+      }
+      .#{$point}\:font-light {
+        font-weight: 300
+      }
+      .#{$point}\:font-extrabold {
+        font-weight: 800
+      }
+      .#{$point}\:font-normal {
+        font-weight: 400
+      }
+      .#{$point}\:font-black {
+        font-weight: 900
+      }
+      .#{$point}\:font-thin {
+        font-weight: 100
+      }
+      .#{$point}\:font-extralight {
+        font-weight: 200
+      }
+      .#{$point}\:\!font-medium {
+        font-weight: 500 !important
+      }
+
+      .#{$point}\:uppercase {
+        text-transform: uppercase
+      }
+      .#{$point}\:lowercase {
+        text-transform: lowercase
+      }
+      .#{$point}\:capitalize {
+        text-transform: capitalize
+      }
+      .#{$point}\:normal-case {
+        text-transform: none
+      }
+      .#{$point}\:italic {
+        font-style: italic
+      }
+      .#{$point}\:not-italic {
+        font-style: normal
+      }
+
+      .#{$point}\:line-none {
+        line-height: 1
+      }
+      .#{$point}\:line-snug {
+        line-height: 1.375
+      }
+      .#{$point}\:line-normal {
+        line-height: 1.5
+      }
+      .#{$point}\:line-tight {
+        line-height: 1.25
+      }
+      .#{$point}\:line-relaxed {
+        line-height: 1.625
+      }
+      .#{$point}\:line-loose {
+        line-height: 2
+      }
+      @for $i from 1 through 10 {
+        .#{$point}\:line-#{$i} {
+          line-height: #{$i/4}rem
+        }
+      }
+
+      .#{$point}\:letter-wide {
+        letter-spacing: .025em
+      }
+      .#{$point}\:letter-tight {
+        letter-spacing: -.025em
+      }
+      .#{$point}\:letter-tighter {
+        letter-spacing: -.05em
+      }
+      .#{$point}\:letter-normal {
+        letter-spacing: 0
+      }
+      .#{$point}\:letter-wider {
+        letter-spacing: .05em
+      }
+      .#{$point}\:letter-widest {
+        letter-spacing: .1em
+      }
+      @for $i from 1 through 10 {
+        .#{$point}\:letter-#{$i} {
+          line-height: #{$i/4}rem
+        }
+      }
+    }
+  }
+}

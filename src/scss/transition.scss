@@ -1,0 +1,38 @@
+.transition,
+.transition-all{
+  transition-property: all;
+}
+.transition-colors {
+  transition-property: background-color, border-color, color, fill, stroke;
+}
+.transition-opacity {
+  transition-property: opacity;
+}
+.transition-transform {
+  transition-property: transform;
+}
+
+$i: 200;
+@while $i <= 1500 {
+  .duration-#{$i} {
+    transition-duration: #{$i}ms
+  }
+  $i: $i + 50;
+}
+$i: 200;
+@while $i <= 1500 {
+  .delay-#{$i} {
+    transition-delay: #{$i}ms
+  }
+  $i: $i + 50;
+}
+
+.ease-out {
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1)
+}
+.ease-in {
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1)
+}
+.ease-in-out {
+  transition-timing-function: cubic-bezier(0.4, 0 ,0.2 ,1)
+}

@@ -1,0 +1,52 @@
+.border-solid {
+  border-style: solid
+}
+.border-dashed {
+  border-style: dashed
+}
+.border-dotted {
+  border-style: dotted
+}
+.border-double {
+  border-style: double
+}
+.border-none {
+  border-style: none
+}
+
+@for $i from 1 through 10 {
+  .border {
+    &-#{$i} {
+      border-style: solid;
+      border-width: #{$i/16}rem;
+    }
+    &-t-#{$i} {
+      border-top-style: solid;
+      border-top-width: #{$i/16}rem;
+    }
+    &-r-#{$i} {
+      border-right-style: solid;
+      border-right-width: #{$i/16}rem;
+    }
+    &-b-#{$i} {
+      border-bottom-style: solid;
+      border-bottom-width: #{$i/16}rem;
+    }
+    &-l-#{$i} {
+      border-left-style: solid;
+      border-left-width: #{$i/16}rem;
+    }
+    &-x-#{$i} {
+      border-right-style: solid;
+      border-left-style: solid;
+      border-right-width: #{$i/16}rem;
+      border-left-width: #{$i/16}rem;
+    }
+    &-y-#{$i} {
+      border-top-style: solid;
+      border-bottom-style: solid;
+      border-top-width: #{$i/16}rem;
+      border-bottom-width: #{$i/16}rem;
+    }
+  }
+}
