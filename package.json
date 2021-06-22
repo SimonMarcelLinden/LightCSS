@@ -1,6 +1,6 @@
 {
   "name": "@simon.marcel.linden/lightcss",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "LightCSS toolkit",
   "module": "dist/lightcss.esm.min.js",
   "browser": "dist/lightcss.umd.min.js",
