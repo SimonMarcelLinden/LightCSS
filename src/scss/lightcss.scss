@@ -1,6 +1,6 @@
 /*!
  * =================================================================================
- * LightCSS - v0.1.1 | MIT License | https://github.com/SimonMarcelLinden/LightCSS *
+ * LightCSS - v0.1.2 | MIT License | https://github.com/SimonMarcelLinden/LightCSS *
  * =================================================================================
 */
 
@@ -8,6 +8,7 @@
 @import 'utils/breakpoits';
 @import "utils/helper";
 
+@import "normalize";
 @import "basics";
 
 @import "colours";
