@@ -1,6 +1,6 @@
 {
-  "name": "lightcss",
-  "version": "0.1.0",
+  "name": "@simon.marcel.linden/lightcss",
+  "version": "0.1.1",
   "description": "LightCSS toolkit",
   "module": "dist/lightcss.esm.min.js",
   "browser": "dist/lightcss.umd.min.js",
@@ -30,11 +30,13 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vue-router": "^3.2.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
@@ -42,7 +44,13 @@
     "rollup": "^2.52.1",
     "rollup-plugin-scss": "^2.6.1",
     "rollup-plugin-terser": "^7.0.2",
-    "vue-template-compiler": "^2.6.11"
+    "vue-loader": "^15.9.7",
+    "vue-template-compiler": "^2.6.11",
+    "node-sass": "^6.0.0",
+    "postcss": "^8.1.14",
+    "resolve-url-loader": "^4.0.0",
+    "sass": "^1.32.11",
+    "sass-loader": "^7.1.0"
   },
   "eslintConfig": {
     "root": true,

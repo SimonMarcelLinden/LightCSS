@@ -26,9 +26,9 @@ $width_steps: (
 .max-h-px {
   max-height: 1px
 }
-.max-h-full {
-  max-height: 100%
-}
+//.max-h-full {
+//  max-height: 100%
+//}
 .max-h-half, .max-h-1\/2 {
   max-height: 50%
 }
@@ -42,12 +42,9 @@ $width_steps: (
 .min-h-px {
   min-height: 1px
 }
-.min-h-0 {
-  min-height: 0
-}
-.min-h-full {
-  min-height: 100%
-}
+//.min-h-full {
+//  min-height: 100%
+//}
 .min-h-half, .min-h-1\/2 {
   min-height: 50%
 }

@@ -103,3 +103,97 @@ $radius_styles: (
     }
   }
 }
+
+@each $point, $screen in $breakpoints {
+  @if map-has-key($queries, $screen) {
+    @include breakpoint(#{$screen}, 'min') {
+      @each $name, $size in $radius_styles {
+        .#{$point}\:radius{
+          &-#{$name} {
+            border-radius: #{$size}
+          }
+          &-t {
+            &-#{$name} {
+              border-top-right-radius: #{$size};
+              border-top-left-radius: #{$size};
+            }
+            &r-#{$name} {
+              border-top-right-radius: #{$size};
+            }
+            &l-#{$name} {
+              border-top-left-radius: #{$size};
+            }
+          }
+          &-r {
+            &-#{$name} {
+              border-top-right-radius: #{$size};
+              border-bottom-right-radius: #{$size};
+            }
+          }
+          &-b {
+            &-#{$name} {
+              border-bottom-right-radius: #{$size};
+              border-bottom-left-radius: #{$size};
+            }
+            &r-#{$name} {
+              border-bottom-right-radius: #{$size};
+            }
+            &l-#{$name} {
+              border-bottom-left-radius: #{$size};
+            }
+          }
+          &-l {
+            &-#{$name} {
+              border-top-left-radius: #{$size};
+              border-bottom-left-radius: #{$size};
+            }
+          }
+        }
+      }
+      @each $i in $radius {
+        $classmame: classname($i, '.', '\\.');
+        .#{$point}\:radius {
+          &-#{$classmame} {
+            border-radius: #{$i/4}rem;
+          }
+          &-t {
+            &-#{$classmame} {
+              border-top-right-radius: #{$i/4}rem;
+              border-top-left-radius: #{$i/4}rem;
+            }
+            &r-#{$classmame} {
+              border-top-right-radius: #{$i/4}rem;
+            }
+            &l-#{$classmame} {
+              border-top-left-radius: #{$i/4}rem;
+            }
+          }
+          &-r {
+            &-#{$classmame} {
+              border-top-right-radius: #{$i/4}rem;
+              border-bottom-right-radius: #{$i/4}rem;
+            }
+          }
+          &-b {
+            &-#{$classmame} {
+              border-bottom-right-radius: #{$i/4}rem;
+              border-bottom-left-radius: #{$i/4}rem;
+            }
+            &r-#{$classmame} {
+              border-bottom-right-radius: #{$i/4}rem;
+            }
+            &l-#{$classmame} {
+              border-bottom-left-radius: #{$i/4}rem;
+            }
+          }
+          &-l {
+            &-#{$classmame} {
+              border-top-left-radius: #{$i/4}rem;
+              border-bottom-left-radius: #{$i/4}rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

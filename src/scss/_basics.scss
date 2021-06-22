@@ -741,6 +741,117 @@ code {
 //  order: 1
 //}
 
+.overflow-auto {
+  overflow: auto
+}
+
+.overflow-hidden {
+  overflow: hidden
+}
+
+.overflow-visible {
+  overflow: visible
+}
+
+.overflow-scroll {
+  overflow: scroll
+}
+
+.overflow-x-auto {
+  overflow-x: auto
+}
+
+.overflow-y-auto {
+  overflow-y: auto
+}
+
+.overflow-x-hidden {
+  overflow-x: hidden
+}
+
+.overflow-x-scroll {
+  overflow-x: scroll
+}
+
+.overflow-y-scroll {
+  overflow-y: scroll
+}
+
+.overscroll-auto {
+  overscroll-behavior: auto
+}
+
+.overscroll-contain {
+  overscroll-behavior: contain
+}
+
+.overscroll-none {
+  overscroll-behavior: none
+}
+
+.truncate {
+  overflow: hidden;
+  white-space: nowrap
+}
+
+.overflow-ellipsis,.truncate {
+  text-overflow: ellipsis
+}
+
+.overflow-clip {
+  text-overflow: clip
+}
+
+.whitespace-normal {
+  white-space: normal
+}
+
+.whitespace-nowrap {
+  white-space: nowrap
+}
+
+.whitespace-pre {
+  white-space: pre
+}
+
+.whitespace-pre-line {
+  white-space: pre-line
+}
+
+.whitespace-pre-wrap {
+  white-space: pre-wrap
+}
+
+.break-normal {
+  overflow-wrap: normal;
+  word-break: normal
+}
+
+.break-words {
+  overflow-wrap: break-word
+}
+
+.break-all {
+  word-break: break-all
+}
+
+.opacity-0 {
+  opacity: 0
+}
+.opacity-25 {
+  opacity: .25
+}
+.opacity-50 {
+  opacity: .5
+}
+.opacity-75 {
+  opacity: .75
+}
+.opacity-100 {
+  opacity: 1
+}
+
+
 @media only screen and (min-width: 48em) {
   .container {
     width: 49rem

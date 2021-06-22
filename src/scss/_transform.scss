@@ -1,0 +1,48 @@
+$rotate: 1, 2, 3, 5, 10, 15, 20, 25, 30, 35, 40, 45, 60, 90, 125, 145, 180;
+@each $step in $rotate {
+  .rotate-#{$step} {
+    transform: rotate( #{$step}deg);
+  }
+  .-rotate-#{$step} {
+    transform: rotate( -#{$step}deg);
+  }
+  .rotate-x-#{$step} {
+    transform: rotateX( #{$step}deg);
+  }
+  .-rotate-x-#{$step} {
+    transform: rotateX( -#{$step}deg);
+  }
+  .rotate-y-#{$step} {
+    transform: rotateY( #{$step}deg);
+  }
+  .-rotate-y-#{$step} {
+    transform: rotateY( -#{$step}deg);
+  }
+}
+
+@each $point, $screen in $breakpoints {
+  @if map-has-key($queries, $screen) {
+    @include breakpoint(#{$screen}, 'min') {
+      @each $step in $rotate {
+        .#{$point}\:rotate-#{$step} {
+          transform: rotate( #{$step}deg);
+        }
+        .#{$point}\:-rotate-#{$step} {
+          transform: rotate( -#{$step}deg);
+        }
+        .#{$point}\:rotate-x-#{$step} {
+          transform: rotateX( #{$step}deg);
+        }
+        .#{$point}\:-rotate-x-#{$step} {
+          transform: rotateX( -#{$step}deg);
+        }
+        .#{$point}\:rotate-y-#{$step} {
+          transform: rotateY( #{$step}deg);
+        }
+        .#{$point}\:-rotate-y-#{$step} {
+          transform: rotateY( -#{$step}deg);
+        }
+      }
+    }
+  }
+}
