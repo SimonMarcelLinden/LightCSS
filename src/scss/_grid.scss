@@ -68,6 +68,12 @@
   .g-col-end-#{$i} {
     grid-column-end: #{$i}
   }
+  .g-row-start-#{$i} {
+    grid-row-start: #{$i}
+  }
+  .g-row-end-#{$i} {
+    grid-row-end: #{$i}
+  }
   .g-row-span-#{$i} {
     grid-row: span #{$i} / span #{$i}
   }
