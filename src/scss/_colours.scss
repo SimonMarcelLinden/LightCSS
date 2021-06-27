@@ -45,11 +45,15 @@
   @each $key, $color in $colors {
     @if $color != null {
       .placeholder-#{$name}-#{$key} {
-        color: $color;
+        &::-webkit-input-placeholder {
+          color: $color;
+        }
       }
     } @else {
       .placeholder-#{$name} {
-        color: $key;
+        &::-webkit-input-placeholder {
+          color: $key;
+        }
       }
     }
   }

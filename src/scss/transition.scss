@@ -12,14 +12,14 @@
   transition-property: transform;
 }
 
-$i: 200;
+$i: 100;
 @while $i <= 1500 {
   .duration-#{$i} {
     transition-duration: #{$i}ms
   }
   $i: $i + 50;
 }
-$i: 200;
+$i: 100;
 @while $i <= 1500 {
   .delay-#{$i} {
     transition-delay: #{$i}ms
