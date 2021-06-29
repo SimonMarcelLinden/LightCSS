@@ -1,0 +1,16 @@
+@import "../01-config/mixins";
+@import "../01-config/variables";
+@import "../01-config/functions";
+
+@each $i in (0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 5, 6, 7, 8, 9, 10, 11, 12) {
+    $gab_name: classname($i, '.', '\\.' );
+    .gab-#{$gab_name} {
+      gap: #{$i/$base}rem;
+    }
+    .gab-x-#{$gab_name} {
+      column-gap: #{$i/$base}rem;
+    }
+    .gab-y-#{$gab_name} {
+      row-gap: #{$i/$base}rem;
+    }
+  }

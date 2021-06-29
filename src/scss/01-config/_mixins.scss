@@ -1,0 +1,16 @@
+//
+ // ==========================================================================
+ // LightCSS - Mixins
+ // ==========================================================================
+ //
+
+// Responsiveness
+@import 'breakpoints';
+
+@mixin clearfix {
+    &::after {
+      clear: both;
+      content: " ";
+      display: table;
+    }
+  }

@@ -1,0 +1,32 @@
+@import "../01-config/mixins";
+@import "../01-config/variables.scss";
+
+.row {
+    display       : flex;
+    flex          : 0 1 auto;
+    flex-direction: row;
+    flex-wrap     : wrap;
+    margin-right  : -.5rem;
+    margin-left   : -.5rem;
+    &.reverse {
+      flex-direction: row-reverse;
+    }
+  }
+
+  @each $point, $screen in $breakpoints {
+    @if map-has-key($devices, $screen) {
+        @include breakpoint(#{$screen}, 'min') {
+            .#{$point}\:row {
+                display       : flex;
+                flex          : 0 1 auto;
+                flex-direction: row;
+                flex-wrap     : wrap;
+                margin-right  : -.5rem;
+                margin-left   : -.5rem;
+                &.reverse {
+                flex-direction: row-reverse;
+                }
+            }
+        }
+    }
+}

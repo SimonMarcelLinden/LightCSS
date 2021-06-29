@@ -1,0 +1,34 @@
+@import "../01-config/mixins";
+@import "../01-config/variables.scss";
+
+@each $name, $value in $border-values {    // All directions
+    .border-#{$name} {
+        border-style: solid !important;
+        border-width: $value;
+    }    
+    // Cardinal directions
+    @each $direction, $suffix in $border-directions {
+        .border-#{$suffix}-#{$name} {
+            border-#{$direction}-style: solid;
+            border-#{$direction}-width: $value !important;
+        }
+    }
+    // Horizontal axis;
+    @if $border-horizontal != null {
+        .border-#{$border-horizontal}-#{$name} {
+            border-left-style: solid;
+            border-right-style: solid;
+            border-left-width   : $value !important;
+            border-right-width  : $value !important;
+        }
+    }
+    // Vertical axis;
+    @if $border-vertical != null {
+        .border-#{$border-vertical}-#{$name} {
+            border-top-style: solid;
+            border-bottom-style: solid;
+            border-top-width: $value !important;
+            border-bottom-width: $value !important;
+        }
+    }
+};

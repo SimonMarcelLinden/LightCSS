@@ -1,0 +1,39 @@
+
+@import "../01-config/mixins";
+@import "../01-config/variables.scss";
+
+@each $screen, $value in $screen-values {
+    .max-h-#{$screen} {
+        max-height: $value;
+    }
+    .min-h-#{$screen} {
+        min-height: $value;
+    }
+    .max-w-#{$screen} {
+        max-width: $value;
+    }
+    .min-w-#{$screen} {
+        min-width: $value;
+    }
+}
+
+@each $point, $screen in $breakpoints {
+    @if map-has-key($devices, $screen) {
+        @include breakpoint(#{$screen}, 'min') {
+            @each $screen, $value in $screen-values {
+                .#{$point}\:max-h-#{$screen} {
+                    max-height: $value;
+                }
+                .#{$point}\:min-h-#{$screen} {
+                    min-height: $value;
+                }
+                .#{$point}\:max-w-#{$screen} {
+                    max-width: $value;
+                }
+                .#{$point}\:min-w-#{$screen} {
+                    min-width: $value;
+                }
+            }
+        }
+    }
+}

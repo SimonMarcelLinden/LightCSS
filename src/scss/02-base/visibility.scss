@@ -1,0 +1,52 @@
+@import "../01-config/mixins";
+@import "../01-config/variables.scss";
+
+$displays: 'block' 'flex' 'inline' 'inline-block' 'inline-flex';
+
+@each $display in $displays {
+    .#{$display} {
+        display: #{$display} !important;
+    }
+}
+
+.hidden {
+    display: none !important;
+}
+
+.sry-only {
+    border: none !important;
+    clip: rect(0, 0, 0, 0) !important;
+    height: 0.01em !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    width: 0.01em !important;
+}
+
+@each $point, $screen in $breakpoints {
+    @if map-has-key($devices, $screen) {
+        @include breakpoint(#{$screen}, 'min') {
+            @each $display in $displays {
+                .#{$point}\:#{$display} {
+                    display: #{$display} !important;
+                }
+            }
+            
+            .#{$point}\:hidden {
+                display: none !important;
+            }
+
+            .#{$point}\:sry-only {
+                border: none !important;
+                clip: rect(0, 0, 0, 0) !important;
+                height: 0.01em !important;
+                overflow: hidden !important;
+                padding: 0 !important;
+                position: absolute !important;
+                white-space: nowrap !important;
+                width: 0.01em !important;
+            }
+        }
+    }
+}

@@ -1,0 +1,80 @@
+@import "../01-config/mixins";
+@import "../01-config/variables";
+@import "../01-config/functions";
+
+
+@each $name, $colors in $color-list {
+    @each $key, $color in $colors {
+        @if $color != null {
+            .border-#{$name}-#{$key} {
+                border-color: $color !important;
+            }
+        } @else {
+            .border-#{$name} {
+                border-color: $key !important;
+            }
+        }
+    }
+}
+
+@each $direction, $suffix in $border-directions {
+    @each $name, $colors in $color-list {
+        @each $key, $color in $colors {
+            @if $color != null {
+                .border-#{$suffix}-#{$name}-#{$key} {
+                    border-#{$direction}-color: $color !important;
+                }
+            } @else {
+                .border-#{$suffix}-#{$name} {
+                    border-#{$direction}-color: $key !important;
+                }
+            }
+        }
+    }
+  }
+  
+@each $name, $colors in $color-list {
+    @each $key, $color in $colors {
+        @if $color != null {
+            .text-#{$name}-#{$key} {
+                color: $color !important;
+            }
+        } @else {
+            .text-#{$name} {
+                color: $key !important;
+            }
+        }
+    }
+}
+
+@each $name, $colors in $color-list {
+    @each $key, $color in $colors {
+      @if $color != null {
+        .placeholder-#{$name}-#{$key} {
+          &::-webkit-input-placeholder {
+            color: $color;
+          }
+        }
+      } @else {
+        .placeholder-#{$name} {
+          &::-webkit-input-placeholder {
+            color: $key;
+          }
+        }
+      }
+    }
+}
+  
+@each $name, $colors in $color-list {
+    @each $key, $color in $colors {
+      @if $color != null {
+        .caret-#{$name}-#{$key} {
+          caret-color: $color;
+        }
+      } @else {
+        .caret-#{$name} {
+          caret-color: $key;
+        }
+      }
+    }
+}
