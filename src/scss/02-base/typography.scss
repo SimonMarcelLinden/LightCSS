@@ -1,0 +1,239 @@
+@import "../01-config/mixins";
+@import "../01-config/variables.scss";
+
+@each $alignment, $text-align in $alignments {
+  .text-#{$alignment} {
+    text-align: #{$text-align} !important;
+  }
+}
+
+@each $alignment, $vertical-align in $aligns {
+    .align-#{$alignment} {
+        vertical-align: #{$vertical-align} !important;
+    }
+}
+
+@each $name, $size in $sizes {
+    .text-#{$name} {
+      font-size  : nth($size, 1);
+      line-height: nth($size, 2);
+    }
+}
+
+@each $weight, $style in $weights {
+    .font-#{$weight} {
+        font-weight: #{style} !important;
+    }
+}
+
+.uppercase {
+    text-transform: uppercase
+}
+.lowercase {
+    text-transform: lowercase
+}
+.capitalize {
+    text-transform: capitalize
+}
+.normal-case {
+    text-transform: none
+}
+.italic {
+    font-style: italic
+}
+.not-italic {
+    font-style: normal
+}
+
+.line-none {
+    line-height: 1
+}
+.line-snug {
+    line-height: 1.375
+}
+.line-normal {
+    line-height: 1.5
+}
+.line-tight {
+    line-height: 1.25
+}
+.line-relaxed {
+    line-height: 1.625
+}
+.line-loose {
+    line-height: 2
+}
+@for $i from 1 through 10 {
+    .line-#{$i} {
+      line-height: #{$i/$base}rem
+    }
+}
+  
+.letter-wide {
+    letter-spacing: .025em
+  }
+.letter-tight {
+    letter-spacing: -.025em
+  }
+.letter-tighter {
+    letter-spacing: -.05em
+  }
+.letter-normal {
+    letter-spacing: 0
+}
+.letter-wider {
+    letter-spacing: .05em
+}
+.letter-widest {
+    letter-spacing: .1em
+}
+@for $i from 1 through 10 {
+    .letter-#{$i} {
+      line-height: #{$i/$base}rem
+    }
+}
+
+@each $point, $screen in $breakpoints {
+    @if map-has-key($devices, $screen) {
+        @include breakpoint(#{$screen}, 'min') {
+            @each $alignment, $text-align in $alignments {
+                .#{$point}\:text-#{$alignment} {
+                    text-align: #{$text-align} !important;
+                }
+            }
+            
+            @each $alignment, $vertical-align in $aligns {
+                .#{$point}\:align-#{$alignment} {
+                    vertical-align: #{$vertical-align} !important;
+                }
+            }
+
+            @each $name, $size in $sizes {
+                .#{$point}\:text-#{$name} {
+                  font-size  : nth($size, 1);
+                  line-height: nth($size, 2);
+                }
+            }
+
+            @each $weight, $style in $weights {
+                .#{$point}\:font-#{$weight} {
+                    font-weight: #{style} !important;
+                }
+            }
+
+            .#{$point}\:uppercase {
+                text-transform: uppercase
+            }
+            .#{$point}\:lowercase {
+                text-transform: lowercase
+            }
+            .#{$point}\:capitalize {
+                text-transform: capitalize
+            }
+            .#{$point}\:normal-case {
+                text-transform: none
+            }
+            .#{$point}\:italic {
+                font-style: italic
+            }
+            .#{$point}\:not-italic {
+                font-style: normal
+            }
+
+            .#{$point}\:line-none {
+                line-height: 1
+              }
+              .#{$point}\:line-snug {
+                line-height: 1.375
+              }
+              .#{$point}\:line-normal {
+                line-height: 1.5
+              }
+              .#{$point}\:line-tight {
+                line-height: 1.25
+              }
+              .#{$point}\:line-relaxed {
+                line-height: 1.625
+              }
+              .#{$point}\:line-loose {
+                line-height: 2
+              }
+              @for $i from 1 through 10 {
+                .#{$point}\:line-#{$i} {
+                  line-height: #{$i/$base}rem
+                }
+              }
+        
+              .#{$point}\:letter-wide {
+                letter-spacing: .025em
+              }
+              .#{$point}\:letter-tight {
+                letter-spacing: -.025em
+              }
+              .#{$point}\:letter-tighter {
+                letter-spacing: -.05em
+              }
+              .#{$point}\:letter-normal {
+                letter-spacing: 0
+              }
+              .#{$point}\:letter-wider {
+                letter-spacing: .05em
+              }
+              .#{$point}\:letter-widest {
+                letter-spacing: .1em
+              }
+              @for $i from 1 through 10 {
+                .#{$point}\:letter-#{$i} {
+                  line-height: #{$i/$base}rem
+                }
+              }
+        }
+    }
+  }
+
+
+// .is-capitalized {
+//     text-transform: capitalize !important;
+// }
+// .is-lowercase {
+//     text-transform: lowercase !important;
+// }
+// .is-uppercase {
+//     text-transform: uppercase !important;
+// }
+// .is-italic {
+//     font-style: italic !important;
+// }
+// .is-underlined {
+//     text-decoration: underline !important;
+// }
+// .has-text-weight-light {
+//     font-weight: $weight-light !important;
+// }
+// .has-text-weight-normal {
+//     font-weight: $weight-normal !important;
+// }
+// .has-text-weight-medium {
+//     font-weight: $weight-medium !important;
+// }
+// .has-text-weight-semibold {
+//     font-weight: $weight-semibold !important;
+// }
+// .has-text-weight-bold {
+//     font-weight: $weight-bold !important;
+// }
+// .is-family-primary {
+//     font-family: $family-primary !important;
+// }
+// .is-family-secondary {
+//     font-family: $family-secondary !important;
+// }
+// .is-family-sans-serif {
+//     font-family: $family-sans-serif !important;
+// }
+// .is-family-monospace {
+//     font-family: $family-monospace !important;
+// }
+// .is-family-code {
+//     font-family: $family-code !important;
+// }

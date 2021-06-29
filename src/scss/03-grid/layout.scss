@@ -1,0 +1,31 @@
+/*
+ * ==========================================================================
+ * LightCSS - Grid Layout
+ * ==========================================================================
+*/
+@import "../01-config/mixins";
+@import "../01-config/variables.scss";
+
+.grid {
+    display: grid;
+    // @extend .px-2;
+}
+
+.inline-grid {
+    display: inline-grid
+}
+
+@each $point, $screen in $breakpoints {
+    @if map-has-key($devices, $screen) {
+        @include breakpoint(#{$screen}, 'min') {
+            .#{$point}\:grid {
+                display: grid;
+                // @extend .px-2;
+            }
+            
+            .#{$point}\:inline-grid {
+                display: inline-grid
+            }
+        }
+    }
+}

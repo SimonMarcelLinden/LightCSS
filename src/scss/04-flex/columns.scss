@@ -1,0 +1,68 @@
+@import "../01-config/mixins";
+@import "../01-config/variables.scss";
+
+.col {
+    flex-grow : 1;
+    flex-basis: 0;
+    max-width : 100%;
+    &.reverse {
+        flex-direction: column-reverse;
+    }
+}
+
+.col,
+.col-1, .col-2, .col-3,
+.col-4, .col-5, .col-6,
+.col-7, .col-8, .col-9,
+.col-10, .col-11, .col-12 {
+  box-sizing        : border-box;
+  flex              : 0 0 auto;
+  padding-right     : .5rem;
+  padding-left      : .5rem;
+}
+
+@for $i from 1 through 12 {
+    .col-#{$i} {
+      flex-basis    : #{$i/12 * 100%};
+      max-width     : #{$i/12 * 100%};
+      &-offset{
+        margin-left: #{$i/12 * 100%};
+      }
+    }
+  }
+
+@each $point, $screen in $breakpoints {
+    @if map-has-key($devices, $screen) {
+        @include breakpoint(#{$screen}, 'min') {
+            .#{$point}\:col {
+                flex-grow : 1;
+                flex-basis: 0;
+                max-width : 100%;
+                &.reverse {
+                    flex-direction: column-reverse;
+                }
+            }
+
+            @for $i from 1 through 12 {
+                .#{$point}\:col-#{$i} {
+                    flex-basis    : #{$i/12 * 100%};
+                    max-width     : #{$i/12 * 100%};
+                    &-offset{
+                        margin-left: #{$i/12 * 100%};
+                    }
+                }
+            } 
+
+            .#{$point}\:col,
+            .#{$point}\:col-1, .#{$point}\:col-2, .#{$point}\:col-3,
+            .#{$point}\:col-4, .#{$point}\:col-5, .#{$point}\:col-6,
+            .#{$point}\:col-7, .#{$point}\:col-8, .#{$point}\:col-9,
+            .#{$point}\:col-10, .#{$point}\:col-11, .#{$point}\:col-12 {
+                box-sizing        : border-box;
+                flex              : 0 0 auto;
+                padding-right     : .5rem;
+                padding-left      : .5rem;
+            }
+        }
+    }    
+}

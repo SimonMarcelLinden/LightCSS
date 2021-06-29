@@ -2,23 +2,23 @@
 
 ## Project setup
 ```
-npm install
+npm install @simon.marcel.linden/lightcss
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+### Import
+After installation, you can import the CSS file into your project using this snippet:
 
-### Compiles and minifies for production
+```sh
+@import '@simon.marcel.linden/lightcss/css/lightcss.css'
 ```
-npm run build
-```
+# Browser Support
 
-### Lints and fixes files
-```
-npm run lint
-```
+LightCSS uses [autoprefixer](https://github.com/postcss/autoprefixer) to make (most) features compatible with earlier browser versions. According to [Can I use](https://caniuse.com/#feat=flexbox), LightCSS is compatible with **recent** versions of:
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+* Chrome
+* Edge
+* Firefox
+* Opera
+* Safari
+
+Internet Explorer (10+) is only partially supported.

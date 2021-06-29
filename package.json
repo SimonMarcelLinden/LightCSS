@@ -1,33 +1,39 @@
 {
   "name": "@simon.marcel.linden/lightcss",
-  "version": "0.1.1",
+  "version": "0.2.0",
+  "homepage": "https://github.com/SimonMarcelLinden/LightCSS#readme",
+  "author": {
+    "name": "Simon Marcel Linden",
+    "email": "infoa@snerve.de"
+  },
   "description": "LightCSS toolkit",
-  "module": "dist/lightcss.esm.min.js",
-  "browser": "dist/lightcss.umd.min.js",
-  "main": "dist/lightcss.esm.min.js",
-  "style": "src/scss/lightcss.scss",
+  "main": "src/lightcss.scss",
+  "unpkg": "dist/lightcss.css",
+  "style": "lightcss/dist/lightcss.min.css",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SimonMarcelLinden/LightCSS.git"
   },
-  "author": "Simon Marcel Linden",
   "license": "MIT",
+  "keywords": [
+    "css",
+    "sass",
+    "flexbox",
+    "responsive",
+    "grid",
+    "flex",
+    "framework"
+  ],
   "bugs": {
     "url": "https://github.com/SimonMarcelLinden/LightCSS/issues"
   },
-  "homepage": "https://github.com/SimonMarcelLinden/LightCSS#readme",
   "files": [
     "dist/*",
+    "src/scss",
+    "src/lightcss.sass",
     "License",
     "README.md"
   ],
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "build-css": "rollup -c",
-    "watch-css": "rollup -c -w"
-  },
   "dependencies": {
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
@@ -41,17 +47,32 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
-    "rollup": "^2.52.1",
-    "rollup-plugin-scss": "^2.6.1",
-    "rollup-plugin-terser": "^7.0.2",
     "vue-loader": "^15.9.7",
     "vue-template-compiler": "^2.6.11",
-    "node-sass": "^6.0.0",
-    "postcss": "^8.1.14",
-    "resolve-url-loader": "^4.0.0",
-    "sass": "^1.32.11",
-    "sass-loader": "^7.1.0"
+
+    "autoprefixer": "^9.8.6",
+    "clean-css-cli": "^4.3.0",
+    "node-sass": "^4.14.1",
+    "postcss-cli": "^7.1.2",
+    "rimraf": "^3.0.2"
   },
+  "scripts": {
+    "serve-vue": "vue-cli-service serve",
+    "build-vue": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+
+    "build": "npm run build-sass && npm run build-autoprefix && npm run build-cleancss",
+    "build-autoprefix": "postcss --use autoprefixer --map false --output dist/lightcss.css dist/lightcss.css",
+    "build-cleancss": "cleancss -o dist/lightcss.min.css dist/lightcss.css",
+    "build-sass": "node-sass --output-style expanded --source-map true src/lightcss.scss dist/lightcss.css",
+    "clean": "rimraf css",
+    "rtl": "npm run rtl-sass && npm run rtl-autoprefix && npm run rtl-cleancss",
+    "rtl-sass": "node-sass --output-style expanded --source-map true src/lightcss-rtl.sass dist/lightcss-rtl.css",
+    "rtl-autoprefix": "postcss --use autoprefixer --map false --output dist/lightcss-rtl.css dist/lightcss-rtl.css",
+    "rtl-cleancss": "cleancss -o dist/lightcss-rtl.min.css dist/lightcss-rtl.css",
+    "deploy": "npm run clean && npm run build && npm run rtl",
+    "watch": "npm run build-sass -- --watch"
+  },  
   "eslintConfig": {
     "root": true,
     "env": {

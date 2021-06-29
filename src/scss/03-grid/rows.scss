@@ -1,0 +1,78 @@
+@import "../01-config/mixins";
+@import "../01-config/variables.scss";
+
+.g-rows-none {
+    grid-template-rows: none
+}
+.g-rows-auto {
+    grid-auto-rows: auto
+}
+.g-rows-min {
+    grid-auto-rows: min-content
+}
+.g-rows-max {
+    grid-auto-rows: max-content
+}
+.g-rows-fr {
+    grid-auto-rows: minmax(0, 1fr)
+}
+
+@for $i from 0 through 12 {
+    .g-rows-#{$i} {
+      grid-template-rows: repeat( $i, minmax(0, 1fr))
+    }
+}
+
+.row-start-auto{
+    grid-row-start: auto
+}
+.row-end-auto{
+    grid-row-end: auto
+}
+
+@for $i from 0 through 13 {
+    .row-start-#{$i} {
+      grid-row-start: #{$i}
+    }
+}
+
+@each $point, $screen in $breakpoints {
+    @if map-has-key($devices, $screen) {
+        @include breakpoint(#{$screen}, 'min') {
+            .#{$point}\:g-rows-none {
+                grid-template-rows: none
+            }
+            .#{$point}\:g-rows-auto {
+                grid-auto-rows: auto
+            }
+            .#{$point}\:g-rows-min {
+                grid-auto-rows: min-content
+            }
+            .#{$point}\:g-rows-max {
+                grid-auto-rows: max-content
+            }
+            .#{$point}\:g-rows-fr {
+                grid-auto-rows: minmax(0, 1fr)
+            }
+            
+            @for $i from 0 through 12 {
+                .#{$point}\:g-rows-#{$i} {
+                  grid-template-rows: repeat( $i, minmax(0, 1fr))
+                }
+            }
+            
+            .#{$point}\:row-start-auto{
+                grid-row-start: auto
+            }
+            .#{$point}\:row-end-auto{
+                grid-row-end: auto
+            }
+            
+            @for $i from 0 through 13 {
+                .#{$point}\:row-start-#{$i} {
+                  grid-row-start: #{$i}
+                }
+            }
+        }
+    }
+}

@@ -18,6 +18,7 @@ $width_steps: (
         'full': 100%,
         'half': 50%,
         '1\\/2': 50%,
+        'auto': auto,
         'min': min-content,
         'max': max-content,
         'prose': 65ch,
@@ -61,25 +62,30 @@ $width_steps: (
     max-height: #{$i/4}rem;
   }
 }
-.h-auto {
-  height: auto;
-}
+
 @each $i in $screen_steps {
   $classmame: classname($i, '.', '\\.');
   .h-#{$classmame} {
     height: #{$i/4}rem;
   }
 }
-.w-auto {
-  width: auto;
+@each $name, $size in $width_steps {
+  $classmame: classname($name, '.', '\\.');
+  .h-#{$classmame} {
+    height: #{$size}
+  }
 }
-.w-full {
-  width: 100%
-}
+
 @each $i in $screen_steps {
   $classmame: classname($i, '.', '\\.');
   .w-#{$classmame} {
     width: #{$i/4}rem;
+  }
+}
+@each $name, $size in $width_steps {
+  $classmame: classname($name, '.', '\\.');
+  .w-#{$classmame} {
+    width: #{$size}
   }
 }
 
@@ -146,16 +152,22 @@ $width_steps: (
           height: #{$i/4}rem;
         }
       }
-      .#{$point}\:w-auto {
-        width: auto;
-      }
-      .#{$point}\:w-full {
-        width: 100%
+      @each $name, $size in $width_steps {
+        $classmame: classname($name, '.', '\\.');
+        .#{$point}\:h-#{$classmame} {
+          height: #{$size}
+        }
       }
       @each $i in $screen_steps {
         $classmame: classname($i, '.', '\\.');
         .#{$point}\:w-#{$classmame} {
           width: #{$i/4}rem;
+        }
+      }
+      @each $name, $size in $width_steps {
+        $classmame: classname($name, '.', '\\.');
+        .#{$point}\:w-#{$classmame} {
+          width: #{$size}
         }
       }
     }

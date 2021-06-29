@@ -1,0 +1,75 @@
+@import "../01-config/mixins";
+@import "../01-config/variables.scss";
+
+.marginless {
+    margin: 0 !important;
+}
+.paddingless {
+    padding: 0 !important;
+}
+
+@each $property, $shortcut in $spacing-shortcuts {
+    @each $name, $value in $spacing-values {    // All directions
+        .#{$shortcut}-#{$name} {
+            #{$property}: $value !important;
+        }    // Cardinal directions
+        @each $direction, $suffix in $spacing-directions {
+            .#{$shortcut}#{$suffix}-#{$name} {
+                #{$property}-#{$direction}: $value !important;
+            }
+        }
+        // Horizontal axis;
+        @if $spacing-horizontal != null {
+            .#{$shortcut}#{$spacing-horizontal}-#{$name} {
+                #{$property}-left: $value !important;
+                #{$property}-right: $value !important;
+            }
+        }
+        // Vertical axis;
+        @if $spacing-vertical != null {
+            .#{$shortcut}#{$spacing-vertical}-#{$name} {
+                #{$property}-top: $value !important;
+                #{$property}-bottom: $value !important;
+            }
+        }
+    }
+};
+
+@each $point, $screen in $breakpoints {
+    @if map-has-key($devices, $screen) {
+        @include breakpoint(#{$screen}, 'min') {
+            .#{$point}\:marginless {
+                margin: 0 !important;
+            }
+            .#{$point}\:paddingless {
+                padding: 0 !important;
+            }
+            @each $property, $shortcut in $spacing-shortcuts {
+                @each $name, $value in $spacing-values {    // All directions
+                    .#{$point}\:#{$shortcut}-#{$name} {
+                        #{$property}: $value !important;
+                    }    // Cardinal directions
+                    @each $direction, $suffix in $spacing-directions {
+                        .#{$point}\:#{$shortcut}#{$suffix}-#{$name} {
+                            #{$property}-#{$direction}: $value !important;
+                        }
+                    }
+                    // Horizontal axis;
+                    @if $spacing-horizontal != null {
+                        .#{$point}\:#{$shortcut}#{$spacing-horizontal}-#{$name} {
+                            #{$property}-left: $value !important;
+                            #{$property}-right: $value !important;
+                        }
+                    }
+                    // Vertical axis;
+                    @if $spacing-vertical != null {
+                        .#{$point}\:#{$shortcut}#{$spacing-vertical}-#{$name} {
+                            #{$property}-top: $value !important;
+                            #{$property}-bottom: $value !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

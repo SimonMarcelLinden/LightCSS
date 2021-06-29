@@ -1,0 +1,47 @@
+$base: 16;
+
+@import "color";
+
+$color-list: ( 'black': $black, 'white': $white, 'transparent': $transparent, 'rose': $rose, 'pink': $pink, 'fuchsia': $fuchsia, 'purple': $purple, 'violet': $violet, 'indigo': $indigo, 'blue': $blue, 'lightBlue': $lightBlue, 'cyan': $cyan, 'teal': $teal, 'emerald': $emerald, 'green': $green, 'lime': $lime, 'yellow': $yellow, 'amber': $amber, 'orange': $orange, 'red': $red, 'warmGray': $warmGray, 'trueGray': $trueGray, 'gray': $gray, 'coolGray': $coolGray, 'blueGray': $blueGray, );
+
+$devices: (
+  "phone"       : 414px,
+  "tablet"      : 768px,  // Medium equals medium-768
+  "tablet-wide" : 1024px,
+  "desktop"     : 1280px, // Large
+  "desktop-wide": 1536px, // Extra-Large
+);
+
+$breakpoints: (
+    "sm": "phone",
+    "md": "tablet",
+    "lg": "tablet-wide",
+    "xl": "desktop",
+    "xxl": "desktop-wide",
+);
+
+$spacing-shortcuts: ("margin": "m", "padding": "p") !default;
+$spacing-directions: ("top": "t", "right": "r", "bottom": "b", "left": "l") !default;
+$spacing-horizontal: "x" !default;
+$spacing-vertical: "y" !default;
+$spacing-values: ("0": 0,  "1": 0.063rem,  "2": 0.125rem,  "3": 0.188rem,  "4": 0.25rem,  "5": 0.313rem, "6": 0.375rem,  "7": 0.438rem, "8": 0.5rem, "9": 0.563rem, "10": 0.625rem, "12": 0.75rem, 'px'  : 1px, 'half': 50%, '1\\/2': 50%, 'full': 100%´, "auto": auto) !default;
+
+$border-directions : $spacing-directions;
+$border-horizontal : $spacing-horizontal;
+$border-vertical   : $spacing-vertical;
+$border-values     : $spacing-values;
+
+$radius-directions : ("top": ( "left" : "tl", "right" : "tr" ),  
+                      "bottom": ( "left" : "bl", "right" : "br" ) ) !default;
+$radius-horizontal : $spacing-horizontal;
+$radius-vertical   : $spacing-vertical;
+$radius-values     : $spacing-values;
+
+$screen_values: (
+  '0': 0, 'none': none, 'xs': 20rem, 'sm': 24rem, 'md': 28rem, 'lg': 32rem, 'xl': 36rem, '2xl': 42rem, '3xl': 48rem, '4xl': 56rem, '5xl': 64rem, '6xl': 72rem, '7xl': 80rem, 'full': 100%, 'half': 50%, '1\\/2': 50%, 'min': min-content, 'max': max-content, 'prose': 65ch, );
+
+// Typography
+$alignments: ('center': 'center', 'justify': 'justify', 'left': 'left', 'right': 'right');
+$aligns: ( 'baseline' : 'baseline', 'top' : 'top', 'middle' : 'middle', 'bottom' : 'bottom', 'text-top'  : 'text-top', 'text-bottom' : 'text-bottom');
+$sizes: ( 'lg'  : ( 1.125rem, 1.75rem ), 'sm'  : ( 0.875rem, 1.25rem ), 'xs'  : ( 0.75rem , 1rem ), 'xl'  : ( 1.25rem , 1.75rem ), 'base': ( 1rem    , 1.5rem ), '2xl' : ( 1.5rem  , 2rem ), '3xl' : ( 1.875rem, 2.25rem ), '4xl' : ( 2.25rem , 2.5rem ), '5xl' : ( 3rem    , 1 ), '6xl' : ( 3.75rem , 1 ), '7xl' : ( 4.5rem  , 1 ), '8xl' : ( 6rem    , 1 ), '9xl' : ( 8rem    , 1 ), );
+$weights : ( 'thin' : 100, 'extraligh' : 200, 'light' : 300, 'normal': 400, 'medium' : 500, 'semibold' : 600, 'bold' : 700, 'extrabold' : 800, 'black' : 900, );

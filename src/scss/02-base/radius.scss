@@ -1,0 +1,20 @@
+@import "../01-config/mixins";
+@import "../01-config/variables.scss";
+
+@each $name, $value in $radius-values {    // All directions
+    .radius-#{$name} {
+        border-radius: #{$value}
+    }    
+    // Cardinal directions
+    @each $direction, $radius-suffix in $radius-directions {
+        .radius-#{$direction}-#{$name} {
+            border-#{$direction}-left-radius: $value !important;
+            border-#{$direction}-right-radius: $value !important;
+        }
+        @each $sub_direction, $suffix in $radius-suffix {
+            .radius-#{$suffix}-#{$name} {
+                border-#{$direction}-#{$sub_direction}-radius: $value !important;
+            }
+        }
+    }
+};
