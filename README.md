@@ -9,7 +9,7 @@ npm install @simon.marcel.linden/lightcss
 After installation, you can import the CSS file into your project using this snippet:
 
 ```sh
-@import '@simon.marcel.linden/lightcss/css/lightcss.css'
+@import '~@simon.marcel.linden/lightcss/dist/lightcss.css';
 ```
 # Browser Support
 
